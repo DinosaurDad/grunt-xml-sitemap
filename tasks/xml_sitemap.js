@@ -43,10 +43,14 @@
         headless: false, ignoreDecorators: false, stringify: {}});
 
     // Build XML string
-	var urlset = builder.create('urlset')
-	            .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
-	            .att('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
-	            .att('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
+	var urlset = builder.create('urlset', {
+		version: '1.0',
+		encoding: 'UTF-8'
+	});
+
+    urlset.att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
+	      .att('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+	      .att('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
 
     this.filesSrc.forEach(function(file) {
       // Create XML node for each entry
