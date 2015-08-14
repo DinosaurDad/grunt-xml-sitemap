@@ -52,6 +52,11 @@
       // Create XML node for each entry
       var url = urlset.ele('url');
 
+	  // remove CWD from filename
+	  if (file.indexOf(options.dest) === 0) {
+	      file = file.slice(options.dest.length);
+	  }
+
       if (options.stripIndex) {
         file = file.replace('index.html', '');
       }
